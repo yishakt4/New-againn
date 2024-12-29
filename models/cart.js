@@ -7,12 +7,14 @@ const p = path.join(
   'cart.json'
 );
 
+
+
 module.exports = class Cart {
   static addProduct(id, productPrice) {
     // Fetch the previous cart
     fs.readFile(p, (err, fileContent) => {
       let cart = { products: [], totalPrice: 0 };
-      if (!err) {
+      if (!err && fileContent.length > 0) {
         cart = JSON.parse(fileContent);
       }
       // Analyze the cart => Find existing product
@@ -35,6 +37,17 @@ module.exports = class Cart {
       fs.writeFile(p, JSON.stringify(cart), err => {
         console.log(err);
       });
+    });
+  }
+
+  static getCart(cb) {
+    // Read the cart file
+    fs.readFile(p, (err, fileContent) => {
+      if (err || fileContent.length === 0) {
+        cb({ products: [], totalPrice: 0 });
+      } else {
+        cb(JSON.parse(fileContent));
+      }
     });
   }
 };

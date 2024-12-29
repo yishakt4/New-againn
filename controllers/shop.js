@@ -31,7 +31,6 @@ exports.getIndex = (req, res, next) => {
     });
   });
 };
-
 exports.getCart = (req, res, next) => {
   Cart.getCart(cart => {
     Product.fetchAll(products => {
