@@ -4,7 +4,8 @@
   "description": "",
   "main": "try.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
   },
   "repository": {
     "type": "git",
@@ -12,9 +13,14 @@
   },
   "keywords": [],
   "author": "",
+  "key":"value",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/yishakt4/New-againn/issues"
   },
-  "homepage": "https://github.com/yishakt4/New-againn#readme"
+  "homepage": "https://github.com/yishakt4/New-againn#readme",
+  "dependencies": {
+    "ejs": "^3.1.10",
+    "express": "^4.21.2"
+  }
 }
