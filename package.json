@@ -13,7 +13,7 @@
   },
   "keywords": [],
   "author": "",
-  "key":"value",
+  "key": "value",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/yishakt4/New-againn/issues"
@@ -21,6 +21,7 @@
   "homepage": "https://github.com/yishakt4/New-againn#readme",
   "dependencies": {
     "ejs": "^3.1.10",
-    "express": "^4.21.2"
+    "express": "^4.21.2",
+    "mysql2": "^3.12.0"
   }
 }
