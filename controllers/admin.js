@@ -73,3 +73,6 @@ exports.postDeleteProduct = (req, res, next) => {
   Product.deleteById(prodId);
   res.redirect('/admin/products');
 };
+
+
+console.log('name is rango');
