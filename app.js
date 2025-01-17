@@ -14,13 +14,15 @@ app.set('views', 'views');
 const adminRoutes = require('./routes/admin');
 const shopRoutes = require('./routes/shop');
 
+// Ensure 'db' is imported or defined correctly before using it
 db.execute('SELECT * FROM products')
-.then(result => {
-    console.log(result[0], result[1]);
-})
-.catch(err => {
-    console.log(err);
-});
+    .then((results) => {
+        console.log(results);
+    })
+    .catch((err) => {
+        console.error('Error executing query:', err);
+    });
+
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
