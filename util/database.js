@@ -8,8 +8,6 @@ db.connect((err) => {
   }
 });
 
-const mysql = require('mysql2/promise');
-
 const db = mysql.createConnection({
   host: 'localhost',
   user: 'root',
