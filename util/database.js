@@ -16,4 +16,3 @@ const db = mysql.createConnection({
 });
 
 const [rows, fields] = await db.execute('SELECT * FROM products');
-console.log(rows);
