@@ -11,11 +11,9 @@ const pool = mysql.createPool({
 
 module.exports = pool;
 
-const db = mysql.createConnection({
-  
 // database.js
 async function getProducts() {
-    const [rows, fields] = await db.execute('SELECT * FROM products');
+    const [rows, fields] = await pool.execute('SELECT * FROM products');
     return rows;
 }
 
