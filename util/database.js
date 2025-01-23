@@ -1,23 +1,27 @@
 // util/database.js
-const mysql = require('mysql2/promise');
+const mysql = require('mysql2');
 
 const pool = mysql.createPool({
   host: 'localhost',
   user: 'root',
-  password: 'Emp#136y',
-  database: 'Authentication'
+  database: 'Authentication',
+  password: 'Emp#136M'
 });
 
+module.exports = pool.promise();
 
-module.exports = pool;
+const db = require('../util/database');
 
-// database.js
-async function getProducts() {
-    const [rows, fields] = await pool.execute('SELECT * FROM products');
-    return rows;
-}
+module.exports = class Product {
+  constructor(id, title, imageUrl, description, price) {
+    this.id = id;
+    this.title = title;
+    this.imageUrl = imageUrl;
+    this.description = description;
+    this.price = price;
+  }
 
-module.exports = {
-    getProducts
+  static fetchAll() {
+    return db.execute('SELECT * FROM products');
+  }
 };
-
