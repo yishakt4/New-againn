@@ -1,27 +1,17 @@
-// util/database.js
-const mysql = require('mysql2');
+const mongodb = require('mongodb');
+const MongoClient = mongodb.MongoClient;
 
-const pool = mysql.createPool({
-  host: 'localhost',
-  user: 'root',
-  database: 'Authentication',
-  password: 'Emp#136M'
-});
-
-module.exports = pool.promise();
-
-const db = require('../util/database');
-
-module.exports = class Product {
-  constructor(id, title, imageUrl, description, price) {
-    this.id = id;
-    this.title = title;
-    this.imageUrl = imageUrl;
-    this.description = description;
-    this.price = price;
-  }
-
-  static fetchAll() {
-    return db.execute('SELECT * FROM products');
-  }
+const mongoConnect = callback => {
+  MongoClient.connect(
+    'mongodb+srv://maximilian:9u4biljMQc4jjqbe@cluster0-ntrwp.mongodb.net/test?retryWrites=true'
+  )
+    .then(client => {
+      console.log('Connected!');
+      callback(client);
+    })
+    .catch(err => {
+      console.log(err);
+    });
 };
+
+module.exports = mongoConnect;
